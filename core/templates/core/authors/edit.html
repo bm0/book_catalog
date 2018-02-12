@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block container %}
+    <div class="section">
+        <div class="row">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form.last_name }}
+                        {{ form.last_name.label_tag }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form.first_name }}
+                        {{ form.first_name.label_tag }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form.middle_name }}
+                        {{ form.middle_name.label_tag }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form.email }}
+                        {{ form.email.label_tag }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="file-field input-field col s6">
+                        <div class="btn">
+                            <span>Фотография</span>
+                            <input type="file" name="photo" id="id_photo">
+
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+
+                    <div class="input-field col s6">
+                        {{ form.phone }}
+                        {{ form.phone.label_tag }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2 offset-s10">
+                        <button class="waves-effect waves-light btn-large" type="submit">Сохранить
+                            <i class="material-icons left">save</i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

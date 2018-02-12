@@ -1,0 +1,18 @@
+<div class="col s4">
+    <div class="card z-depth-3">
+        <div class="card-image">
+            <img src="{{ object.photo.url }}" width="250" height="250">
+            <span class="card-title">{{ object }}</span>
+        </div>
+        <div class="card-content">
+            <p>
+                <i class="material-icons">email</i> {{ object.email|default:'Не указан' }} <br>
+                <i class="material-icons">smartphone</i> {{ object.phone|default:'Не указан' }}
+            </p>
+        </div>
+        <div class="card-action" style="display: flex; justify-content: space-between">
+            <a href="{% url 'authors_update' pk=object.pk %}"><i class="material-icons teal-text">edit</i></a>
+            <a href="{% url 'authors_delete' pk=object.pk %}"><i class="material-icons red-text">delete</i></a>
+        </div>
+    </div>
+</div>

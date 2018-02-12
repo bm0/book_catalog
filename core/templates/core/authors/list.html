@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block container %}
+    <div class="section">
+
+        <div class="card-panel z-depth-4">
+            <form action="" method="get">
+                <div class="row">
+                    <div class="input-field col s3">
+                        {{ filter.form.last_name }}
+                        {{ filter.form.last_name.label_tag }}
+
+                    </div>
+                    <div class="input-field col s3">
+                        {{ filter.form.first_name }}
+                        {{ filter.form.first_name.label_tag }}
+                    </div>
+                    <div class="input-field col s4">
+                        {{ filter.form.email }}
+                        {{ filter.form.email.label_tag }}
+                    </div>
+                    <div class="input-field col s2">
+                        <button class="btn waves-effect waves-light" type="submit">Найти</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% for obj in object_list %}
+        {% if forloop.first or forloop.counter0|divisibleby:3 %}
+            <div class="row">
+        {% endif %}
+
+    {% include 'core/includes/author_card.html' with object=obj %}
+
+    {% if forloop.counter|divisibleby:3 or forloop.last %}
+        </div>
+    {% endif %}
+    {% endfor %}
+
+    <div class="fixed-action-btn">
+        <a href="{% url 'authors_create' %}" class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+{% endblock %}
+

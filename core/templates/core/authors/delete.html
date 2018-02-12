@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block container %}
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel teal">
+                      <span class="white-text">
+                        Вы действительно хотите удалить автора {{ object }}?
+                          {% if object.books.exists %}
+                              <br>
+                              Будут удалены связанные книги:<br>
+                              <ul>
+                              {% for book in object.books.all %}
+                                  <li>
+                                    {{ book.name }}
+                                </li>
+                              {% endfor %}
+                              </ul>
+                          {% endif %}
+                      </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="col s2 offset-s10">
+            <button class="waves-effect waves-light btn-large red" type="submit">Удалить
+            <i class="material-icons left">delete_forever</i></button>
+        </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}

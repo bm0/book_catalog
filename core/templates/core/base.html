@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Book catalog</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+
+<nav class="red lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Book catalog</a>
+
+    <ul id="slide-out" class="side-nav">
+        <li><a href="{% url 'authors_list' %}"><i class="material-icons">person</i></a></li>
+        <li><a href="#"><i class="material-icons">library_books</i></a></li>
+        <li><a href="#"><i class="material-icons">label</i></a></li>
+        {% if request.user.is_staff %}
+            <li><a href="{% url 'admin:index' %}"><i class="material-icons">settings</i></a></li>
+        {% endif %}
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<div class="container">
+    {% block container %}
+    {% endblock %}
+</div>
+
+<script src="{% static 'core/js/jquery.min.js' %}"></script>
+<script src="{% static 'core/js/materialize.min.js' %}"></script>
+<script src="{% static 'core/js/init.js' %}"></script>
+
+</body>
+</html>

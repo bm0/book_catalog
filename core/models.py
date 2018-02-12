@@ -5,6 +5,8 @@ class Author(models.Model):
     last_name = models.CharField('Фамилия', max_length=50)
     middle_name = models.CharField('Отчество', max_length=50, blank=True)
 
+    photo = models.ImageField('Фотография', upload_to='authors/photos/', null=True, blank=True)
+
     email = models.EmailField('Email', blank=True)
     phone = models.PositiveIntegerField('Телефон', null=True, blank=True)
 
@@ -32,9 +34,9 @@ class Book(models.Model):
     name = models.CharField('Название', max_length=100)
     description = models.CharField('Краткое описание', max_length=500)
     preview = models.ImageField('Изображение-превью', upload_to='books/previews/', null=True, blank=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, related_name='books', on_delete=models.CASCADE)
 
-    tags = models.ManyToManyField(Tag, verbose_name='Теги')
+    tags = models.ManyToManyField(Tag, verbose_name='Теги', related_name='books')
 
     pub_at = models.DateField('Дата публикации', auto_now_add=True)
 

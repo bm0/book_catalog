@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block container %}
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel teal">
+                      <span class="white-text">
+                        Вы действительно хотите удалить тег {{ object.name }}?
+                      </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="col s2 offset-s10">
+            <button class="waves-effect waves-light btn-large red" type="submit">Удалить
+            <i class="material-icons left">delete_forever</i></button>
+        </div>
+        </div>
+    </form>
+    </div>
+{% endblock %}

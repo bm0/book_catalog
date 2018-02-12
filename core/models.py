@@ -21,7 +21,7 @@ class Tag(models.Model):
     is_active = models.BooleanField('Флаг активности', default=False)
 
     def __str__(self):
-        return '{} {}'.format('🞎' if self.is_active else '☑', self.name)
+        return '{} {}'.format('[active]' if self.is_active else '[not active]', self.name)
 
     class Meta:
         verbose_name = 'Тег'

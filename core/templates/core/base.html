@@ -17,8 +17,8 @@
 
     <ul id="slide-out" class="side-nav">
         <li><a href="{% url 'authors_list' %}"><i class="material-icons">person</i></a></li>
-        <li><a href="#"><i class="material-icons">library_books</i></a></li>
-        <li><a href="#"><i class="material-icons">label</i></a></li>
+        <li><a href="{% url 'books_list' %}"><i class="material-icons">library_books</i></a></li>
+        <li><a href="{% url 'tags_list' %}"><i class="material-icons">label</i></a></li>
         {% if request.user.is_staff %}
             <li><a href="{% url 'admin:index' %}"><i class="material-icons">settings</i></a></li>
         {% endif %}
@@ -35,6 +35,7 @@
 <script src="{% static 'core/js/jquery.min.js' %}"></script>
 <script src="{% static 'core/js/materialize.min.js' %}"></script>
 <script src="{% static 'core/js/init.js' %}"></script>
+<script src="{% static 'core/js/books_loader.js' %}"></script>
 
 </body>
 </html>

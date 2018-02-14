@@ -1,0 +1,17 @@
+<div class="col s4">
+    <div class="card z-depth-3">
+        <div class="card-image">
+            <img src=" {% if object.preview %}{{ object.preview.url }}{% endif %}" width="250" height="250">
+            <span class="card-title">{{ object }}</span>
+        </div>
+        <div class="card-content">
+            <p><i class="material-icons">access_time</i> {{ object.pub_at }}</p>
+            <div class="data"></div>
+        </div>
+        <div class="card-action" style="display: flex; justify-content: space-between">
+            <a href="{% url 'books_update' pk=object.pk %}"><i class="material-icons teal-text">edit</i></a>
+            <button  data-target="modal" data-pk="{{ object.pk }}" class="book-detail btn-flat modal-trigger"><i class="material-icons">details</i></button>
+            <a href="{% url 'books_delete' pk=object.pk %}"><i class="material-icons red-text">delete</i></a>
+        </div>
+    </div>
+</div>

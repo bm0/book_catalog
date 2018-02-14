@@ -3,6 +3,8 @@
 {% block container %}
     <div class="section">
         <div class="row">
+                        <div class="card-panel z-depth-4">
+
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row">
@@ -44,12 +46,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s2 offset-s10">
-                        <button class="waves-effect waves-light btn-large" type="submit">Сохранить
-                            <i class="material-icons left">save</i></button>
+                    <div class="right-align">
+                        <button class="waves-effect waves-light btn-large" type="submit">
+                            <i class="material-icons left">save</i>Сохранить</button>
                     </div>
                 </div>
             </form>
+                        </div>
         </div>
     </div>
 {% endblock %}

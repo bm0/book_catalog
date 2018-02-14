@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework_swagger',
+    'rest_framework',
+
     'core',
 ]
 
@@ -123,6 +126,10 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SWAGGER_SETTINGS = {
+    'JSON_EDITOR': True
+}
 
 try:
     from project.local_settings import *

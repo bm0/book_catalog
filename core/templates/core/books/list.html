@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+
+{% block container %}
+    <div class="section">
+
+        <div class="card-panel z-depth-4">
+            <form action="" method="get">
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ filter.form.author }}
+                        {{ filter.form.author.label_tag }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ filter.form.tags }}
+                        {{ filter.form.tags.label_tag }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ filter.form.pub_at }}
+                        {{ filter.form.pub_at.label_tag }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ filter.form.keyword }}
+                        {{ filter.form.keyword.label_tag }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s2 offset-s10">
+                        <button class="btn waves-effect waves-light" type="submit">Найти</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% for obj in object_list %}
+        {% if forloop.first or forloop.counter0|divisibleby:3 %}
+            <div class="row">
+        {% endif %}
+
+    {% include 'core/includes/book_card.html' with object=obj %}
+
+    {% if forloop.counter|divisibleby:3 or forloop.last %}
+        </div>
+    {% endif %}
+    {% endfor %}
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>
+                <i class="material-icons">label</i>
+                <span id="tags"></span>
+            </p>
+            <p>
+                <i class="material-icons">description</i>
+                <span id="description"></span>
+            </p>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a href="{% url 'books_create' %}" class="btn-floating btn-large red">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+{% endblock %}
+

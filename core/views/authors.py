@@ -3,7 +3,7 @@ from django_filters import views
 from django.views import generic
 from django.urls import reverse_lazy
 
-from .. import models
+from core import models
 
 
 class Create(generic.CreateView):

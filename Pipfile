@@ -10,6 +10,8 @@ name = "pypi"
 django = "==1.11"
 pillow = "*"
 django-filter = "*"
+djangorestframework = "*"
+django-rest-swagger = "*"
 
 
 [dev-packages]

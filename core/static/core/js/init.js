@@ -22,7 +22,7 @@ $(document).ready(function () {
         today: '<i class="material-icons waves-effect">today</i>',
         clear: '<i class="material-icons waves-effect">delete</i>',
         close: '<i class="material-icons waves-effect">done</i>',
-        format: 'mm/dd/yyyy',
+        format: 'dd.mm.yyyy',
         hiddenPrefix: undefined,
         hiddenSuffix: undefined,
         hiddenName: undefined

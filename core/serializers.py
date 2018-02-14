@@ -33,9 +33,24 @@ class SetTag(serializers.ModelSerializer):
             'preview',
             'author'
         )
+        extra_kwargs = {
+            'tags': {
+                'queryset': models.Tag.objects.filter(is_active=True)
+            }
+        }
 
 
-class RevokeTag(SetTag):
+class RevokeTag(serializers.ModelSerializer):
+    class Meta:
+        model = models.Book
+        fields = '__all__'
+        read_only_fields = (
+            'name',
+            'description',
+            'preview',
+            'author'
+        )
+
     def update(self, instance, validated_data):
         instance.tags.remove(*validated_data['tags'])
 

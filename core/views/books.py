@@ -23,7 +23,7 @@ class List(views.FilterView):
 
 class Update(generic.UpdateView):
     model = models.Book
-    fields = '__all__'
+    form_class = forms.Book
     template_name = 'core/books/edit.html'
     success_url = reverse_lazy('books_list')
 

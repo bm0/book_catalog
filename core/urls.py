@@ -11,7 +11,8 @@ from core.views import tags
 from core.views import rest
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='core/base.html')),
+    url(r'^$', TemplateView.as_view(template_name='core/index.html')),
+
     url(r'^api/', include(routers.router.urls)),
     url(r'^api/books/(?P<pk>\d+)/set_tag/$', rest.SetTag.as_view()),
     url(r'^api/books/(?P<pk>\d+)/revoke_tag/$', rest.RevokeTag.as_view()),

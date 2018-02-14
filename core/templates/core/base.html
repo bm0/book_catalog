@@ -19,9 +19,7 @@
         <li><a href="{% url 'authors_list' %}"><i class="material-icons">person</i></a></li>
         <li><a href="{% url 'books_list' %}"><i class="material-icons">library_books</i></a></li>
         <li><a href="{% url 'tags_list' %}"><i class="material-icons">label</i></a></li>
-        {% if request.user.is_staff %}
-            <li><a href="{% url 'admin:index' %}"><i class="material-icons">settings</i></a></li>
-        {% endif %}
+        <li><a href="{% url 'admin:index' %}"><i class="material-icons">settings</i></a></li>
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
     </div>

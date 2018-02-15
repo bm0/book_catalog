@@ -20,6 +20,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^docs/', get_swagger_view(title='Book Catalog API')),
+    url(r'^docs/', get_swagger_view(title='Book Catalog API'), name='docs'),
     url(r'^', include('core.urls'))
 ]

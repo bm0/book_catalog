@@ -12,6 +12,8 @@ pillow = "*"
 django-filter = "*"
 djangorestframework = "*"
 django-rest-swagger = "*"
+circus = "*"
+gunicorn = "*"
 
 
 [dev-packages]

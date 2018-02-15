@@ -6,7 +6,7 @@
             <div class="col s12">
                 <div class="card-panel teal">
                       <span class="white-text">
-                        Вы действительно хотите удалить тег {{ object.name }}?
+                        Вы действительно хотите удалить тег "{{ object.name }}"?
                       </span>
                 </div>
             </div>
@@ -15,10 +15,10 @@
             <form action="" method="post">
                 {% csrf_token %}
                 <div class="right-align">
-            <button class="waves-effect waves-light btn-large red" type="submit">Удалить
-            <i class="material-icons left">delete_forever</i></button>
+                    <button class="waves-effect waves-light btn-large red" type="submit">Удалить
+                        <i class="material-icons left">delete_forever</i></button>
+                </div>
+            </form>
         </div>
-        </div>
-    </form>
     </div>
 {% endblock %}
